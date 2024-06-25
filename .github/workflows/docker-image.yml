@@ -28,7 +28,7 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: yourdockerhubusername/your-repo-name:latest
+        tags: ben2511/resumne:latest
         build-args: |
           WORDPRESS_DB_HOST=${{ secrets.WORDPRESS_DB_HOST }}
           WORDPRESS_DB_USER=${{ secrets.WORDPRESS_DB_USER }}

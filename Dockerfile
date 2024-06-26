@@ -1,17 +1,25 @@
 # Use the official WordPress image from Docker Hub
 FROM wordpress:latest
 
-# Optional: Install any additional requirements or extensions
-# This section is commented out, but you can uncomment and modify it if there are additional packages you need.
-# RUN apt-get update && apt-get install -y example-package
+# Use ARG to accept build-time variables
+ARG WORDPRESS_DB_HOST
+ARG WORDPRESS_DB_USER
+ARG WORDPRESS_DB_PASSWORD
+ARG WORDPRESS_DB_NAME
 
-# Copy any custom themes or plugins into the image
-# You should uncomment these lines and modify the paths if you have specific themes or plugins to include in your image.
+# Set environment variables
+ENV WORDPRESS_DB_HOST=${WORDPRESS_DB_HOST}
+ENV WORDPRESS_DB_USER=${WORDPRESS_DB_USER}
+ENV WORDPRESS_DB_PASSWORD=${WORDPRESS_DB_PASSWORD}
+ENV WORDPRESS_DB_NAME=${WORDPRESS_DB_NAME}
+
+# Install additional packages, copy themes/plugins if necessary
 # COPY ./your-theme-path /var/www/html/wp-content/themes/your-theme
 # COPY ./your-plugin-path /var/www/html/wp-content/plugins/your-plugin
 
-# Expose port 80 to the host so that WordPress can be accessed from outside the container
+# Expose the necessary port
 EXPOSE 80
 
-# When running a container, this command will start Apache and the necessary services
+# Run Apache in the foreground
 CMD ["apache2-foreground"]
+

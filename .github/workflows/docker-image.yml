@@ -3,7 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - main  
+      - main
 
 jobs:
   build-and-push:
@@ -35,3 +35,11 @@ jobs:
           WORDPRESS_DB_PASSWORD=${{ secrets.WORDPRESS_DB_PASSWORD }}
           WORDPRESS_DB_NAME=${{ secrets.WORDPRESS_DB_NAME }}
 
+    - name: Deploy with Docker Compose
+      run: |
+        docker-compose up -d
+      env:
+        MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
+        MYSQL_DATABASE: ${{ secrets.WORDPRESS_DB_NAME }}
+        MYSQL_USER: ${{ secrets.WORDPRESS_DB_USER }}
+        MYSQL_PASSWORD: ${{ secrets.WORDPRESS_DB_PASSWORD }}

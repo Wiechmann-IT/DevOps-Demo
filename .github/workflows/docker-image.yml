@@ -44,7 +44,3 @@ jobs:
         MYSQL_DATABASE: ${{ secrets.WORDPRESS_DB_NAME }}
         MYSQL_USER: ${{ secrets.WORDPRESS_DB_USER }}
         MYSQL_PASSWORD: ${{ secrets.WORDPRESS_DB_PASSWORD }}
-
-- name: Show Docker container logs
-  run: |
-    docker-compose logs

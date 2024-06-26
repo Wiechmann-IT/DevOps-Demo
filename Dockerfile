@@ -1,23 +1,12 @@
 # Use the official WordPress image from Docker Hub
 FROM wordpress:latest
 
-# Set environment variables for WordPress
-# Use ARG for build-time variables that will be replaced by GitHub secrets in the CI/CD pipeline
-ARG WORDPRESS_DB_HOST
-ARG WORDPRESS_DB_USER
-ARG WORDPRESS_DB_PASSWORD
-ARG WORDPRESS_DB_NAME
-
-# Set the environment variables with the ARG values
-ENV WORDPRESS_DB_HOST=${WORDPRESS_DB_HOST}
-ENV WORDPRESS_DB_USER=${WORDPRESS_DB_USER}
-ENV WORDPRESS_DB_PASSWORD=${WORDPRESS_DB_PASSWORD}
-ENV WORDPRESS_DB_NAME=${WORDPRESS_DB_NAME}
-
 # Optional: Install any additional requirements or extensions
+# This section is commented out, but you can uncomment and modify it if there are additional packages you need.
 # RUN apt-get update && apt-get install -y example-package
 
 # Copy any custom themes or plugins into the image
+# You should uncomment these lines and modify the paths if you have specific themes or plugins to include in your image.
 # COPY ./your-theme-path /var/www/html/wp-content/themes/your-theme
 # COPY ./your-plugin-path /var/www/html/wp-content/plugins/your-plugin
 

@@ -1,32 +1,18 @@
 version: '3.8'
 
 services:
-  db:
-    image: mysql:5.7
-    volumes:
-      - db_data:/var/lib/mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}  
-      MYSQL_USER: ${MYSQL_USER}          
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}  
-
   wordpress:
-    depends_on:
-      - db
     image: ben2511/resumne:latest
     ports:
       - "80:80"
     restart: always
     environment:
-      WORDPRESS_DB_HOST: ${MY_SQL_DB_HOST} # Direct reference to the db service
-      WORDPRESS_DB_USER: ${MYSQL_USER}    # Use consistent variable names
-      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
-      WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
+      WORDPRESS_DB_HOST: sql7.freesqldatabase.com
+      WORDPRESS_DB_USER: sql7716242
+      WORDPRESS_DB_PASSWORD: v9tavbHDSg
+      WORDPRESS_DB_NAME: sql7716242
     volumes:
       - wordpress_data:/var/www/html
 
 volumes:
-  db_data: {}
   wordpress_data: {}

@@ -38,7 +38,7 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ben2511/resumne:latest
+        tags: ben2511/resume:latest
 
     - name: Display environment variables
       run: |

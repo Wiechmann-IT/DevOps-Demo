@@ -7,10 +7,10 @@ services:
       - "80:80"
     restart: always
     environment:
-      WORDPRESS_DB_HOST: ${{ secrets.WORDPRESS_DB_HOST }}
-      WORDPRESS_DB_USER: ${{ secrets.WORDPRESS_DB_USER }}
-      WORDPRESS_DB_PASSWORD: ${{ secrets.WORDPRESS_DB_PASSWORD }}
-      WORDPRESS_DB_NAME: ${{ secrets.WORDPRESS_DB_NAME }}
+      WORDPRESS_DB_HOST: sql7.freesqldatabase.com
+      WORDPRESS_DB_USER: sql7716242
+      WORDPRESS_DB_PASSWORD: v9tavbHDSg
+      WORDPRESS_DB_NAME: sql7716242
       WORDPRESS_TABLE_PREFIX: wp_2_
     volumes:
       - wordpress_data:/var/www/html

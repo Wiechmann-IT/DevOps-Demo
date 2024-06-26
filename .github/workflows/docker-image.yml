@@ -29,18 +29,4 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: ben2511/resumne:latest
-        build-args: |
-          WORDPRESS_DB_HOST=${{ secrets.WORDPRESS_DB_HOST }}
-          WORDPRESS_DB_USER=${{ secrets.WORDPRESS_DB_USER }}
-          WORDPRESS_DB_PASSWORD=${{ secrets.WORDPRESS_DB_PASSWORD }}
-          WORDPRESS_DB_NAME=${{ secrets.WORDPRESS_DB_NAME }}
 
-    - name: Deploy with Docker Compose
-      run: |
-        docker-compose up -d
-        
-      env:
-        MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
-        MYSQL_DATABASE: ${{ secrets.WORDPRESS_DB_NAME }}
-        MYSQL_USER: ${{ secrets.WORDPRESS_DB_USER }}
-        MYSQL_PASSWORD: ${{ secrets.WORDPRESS_DB_PASSWORD }}
